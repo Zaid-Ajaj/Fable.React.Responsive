@@ -35,7 +35,6 @@ let introduction =
                     [ h1 [ ] [ str "You are on desktop" ] ] ] ]"""
           br [ ] ]
 
-
 let render (state: State) dispatch = 
     div [ Style [ Padding 20 ] ]  
         [ introduction

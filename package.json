@@ -1,7 +1,7 @@
 {
   "private": true,
   "repository": {
-    "url": "https://github.com/Zaid-Ajaj/Fable.React.Flatpickr.git"
+    "url": "https://github.com/Zaid-Ajaj/Fable.React.Responsive.git"
   },
   "scripts": {
     "build": "webpack -p",

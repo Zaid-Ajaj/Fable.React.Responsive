@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Description>Fable.React binding for react-responsive component</Description>
-    <PackageProjectUrl>https://github.com/Zaid-Ajaj/elmish-components</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/Zaid-Ajaj/elmish-components</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/Zaid-Ajaj/Fable.React.Responsive</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Zaid-Ajaj/Fable.React.Responsive</RepositoryUrl>
     <PackageLicenseUrl>https://github.com/Zaid-Ajaj/Fable.React.Responsive.git/blob/master/LICENSE</PackageLicenseUrl>
     <PackageIconUrl></PackageIconUrl>
     <PackageTags>fsharp;fable</PackageTags>
@@ -17,5 +17,5 @@
   <ItemGroup>
     <Content Include="*.fsproj; *.fs;" PackagePath="fable\" />
   </ItemGroup>
-  <Import Project="..\..\.paket\Paket.Restore.targets" />
+  <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

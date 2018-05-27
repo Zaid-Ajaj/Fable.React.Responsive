@@ -10,18 +10,24 @@ let platformTool tool winTool =
   let tool = if isUnix then tool else winTool
   tool
   |> ProcessHelper.tryFindFileOnPath
-  |> function Some t -> t | _ -> failwithf "%s not found" tool
+  |> function
+        | Some toolName -> toolName 
+        | _ -> failwithf "%s not found" tool
 
 let nodeTool = platformTool "node" "node.exe"
 let mutable dotnetCli = "dotnet"
 
-let run cmd args workingDir =
-  let result =
-    ExecProcess (fun info ->
-      info.FileName <- cmd
-      info.WorkingDirectory <- workingDir
-      info.Arguments <- args) TimeSpan.MaxValue
-  if result <> 0 then failwithf "'%s %s' failed" cmd args
+let run fileName args workingDir =
+    printfn "CWD: %s" workingDir
+    let fileName, args =
+        if EnvironmentHelper.isUnix
+        then fileName, args else "cmd", ("/C " + fileName + " " + args)
+    let ok =
+        execProcess (fun info ->
+            info.FileName <- fileName
+            info.WorkingDirectory <- workingDir
+            info.Arguments <- args) TimeSpan.MaxValue
+    if not ok then failwith (sprintf "'%s> %s %s' task failed" workingDir fileName args)
 
 let delete file = 
     if File.Exists(file) 
@@ -47,12 +53,8 @@ Target "Clean" <| fun _ ->
     cleanCacheDirs()
     cleanBundles()
 
-Target "InstallNpmPackages" (fun _ ->
-  printfn "Node version:"
-  run nodeTool "--version" __SOURCE_DIRECTORY__
-  run "npm" "--version" __SOURCE_DIRECTORY__
-  run "npm" "install" __SOURCE_DIRECTORY__
-)
+Target "InstallNpmPackages" <| fun _ -> 
+  run "npm" "install" "."
 
 Target "Restore" <| fun _ ->
   run dotnetCli "restore" app

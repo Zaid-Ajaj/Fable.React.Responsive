@@ -3,7 +3,6 @@ module Common
 open Fable.Helpers.React
 open Fable.Helpers.React.Props
 open Fable.Core.JsInterop
-open Fable.Core
 
 let classes args  =
     args 

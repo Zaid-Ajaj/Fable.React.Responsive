@@ -5,6 +5,3 @@ Fable.React
 Fable.Import.Browser
 Fable.Elmish
 Fable.Elmish.React
-Fable.Elmish.Browser
-Fable.Elmish.HMR
-Fable.Elmish.Debugger
