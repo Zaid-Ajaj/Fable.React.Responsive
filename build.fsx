@@ -79,7 +79,7 @@ let publish projectPath = fun () ->
     let pushCmd = sprintf "nuget push %s -s nuget.org -k %s" nupkg nugetKey
     run dotnetCli pushCmd projectPath
 
-Target "PublishFlatpickr" (publish ("src" </> "Fable.React.Flatpickr"))
+Target "PublishNuget" (publish "src")
 
 Target "Compile" <| fun _ ->
     run dotnetCli "fable npm-run build --port free" app

@@ -1,4 +1,4 @@
-# Fable.React.Responsive
+# Fable.React.Responsive [![Nuget](https://img.shields.io/nuget/v/Fable.React.Responsive.svg?colorB=green)](https://www.nuget.org/packages/Fable.React.Responsive)
 
 A Fable binding for [react-responsive](https://github.com/contra/react-responsive) that is ready to use within [Elmish](https://github.com/fable-elmish/elmish) applications
 
